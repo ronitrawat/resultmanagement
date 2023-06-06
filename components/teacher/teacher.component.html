@@ -1,0 +1,128 @@
+<!--Navbar Code-->
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>Teacher DashBoard</h2>
+        <div class="d-flex">
+            <a class="btn btn-danger" routerLink="../login">Logout</a>
+        </div>
+    </div>
+</nav>
+<!--Table Code-->
+<div class="container">
+    <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add Student
+    </button>
+    <table class="table text-center mt-4 border=2px">
+        <thead>
+            <tr>
+                <th scope="col">Student ID</th>
+                <th scope="col">Roll No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date-of-Birth</th>
+                <th scope="col">Score</th>
+                <th scope="col">Skill</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of allStudentData">
+                <td>{{data.id}}</td>
+                <td>{{data.rollno}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.dob}}</td>
+                <td>{{data.score}}</td>
+                <td>{{data.skill}}</td>
+                <td>
+                    <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editStudentData" (click)="editStudent(data)">Edit</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger" (click)="deleteStudent(data)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!--Add Student Data-->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Enter Student Details</h5>
+                <button type="button" id="cancel" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Roll No.:&nbsp;&nbsp;*</label>
+                      <input type="number" formControlName="rollno" class="form-control" placeholder="Enter Roll No." id="exampleInputEmail1" 
+                      aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Name:&nbsp;&nbsp;*</label>
+                      <input type="text" formControlName="name" class="form-control" id="exampleInputPassword1" placeholder="Enter Student Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Date-of-Birth:&nbsp;&nbsp;*</label>
+                        <input type="date" formControlName="dob" class="form-control" id="exampleInputPassword1" placeholder="Enter Student DOB" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Score:&nbsp;&nbsp;*</label>
+                        <input type="number" formControlName="score" class="form-control" id="exampleInputPassword1" placeholder="Enter Student Score" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Skill:&nbsp;&nbsp;*</label>
+                        <input type="text" formControlName="skill" class="form-control" id="exampleInputPassword1" placeholder="Enter Student Skill" required>
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+                <button type="button" class="btn btn-primary" (click)="addStudent()">Add Details</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit Student Data-->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="editStudentData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Student Details</h5>
+                <button type="button"id="exit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Roll No.:&nbsp;&nbsp;*</label>
+                      <input type="number" formControlName="rollno" class="form-control" placeholder="Enter Roll No." id="exampleInputEmail1" 
+                      aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Name:&nbsp;&nbsp;*</label>
+                      <input type="text" formControlName="name" class="form-control" id="exampleInputPassword1" placeholder="Enter Student Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Date-of-Birth:&nbsp;&nbsp;*</label>
+                        <input type="date" formControlName="dob" class="form-control" id="exampleInputPassword1" placeholder="Enter Student DOB" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Score:&nbsp;&nbsp;*</label>
+                        <input type="number" formControlName="score" class="form-control" id="exampleInputPassword1" placeholder="Enter Student Score" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Skill:&nbsp;&nbsp;*</label>
+                        <input type="text" formControlName="skill" class="form-control" id="exampleInputPassword1" placeholder="Enter Student Skill" required>
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+                <button type="button" class="btn btn-primary" (click)="updateStudent()">Update Details</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<!--Navbar-->
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>Student DashBoard</h2>
+        <div class="d-flex">
+            <a class="btn btn-danger" routerLink="../login">Logout</a>
+        </div>
+    </div>
+</nav>
+<!--Body-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3>Search Result:</h3>
+                    <div id="emailHelp" class="form-text">Please Enter Your Roll No & DOB
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div *ngIf="errorText" style="background-color: #FF7B7B; color: white; border: 1px solid red;
+                    padding: 10px;">
+                        {{errorText}}
+                    </div>
+                    <form action="post">
+                        <div class="mb-3">
+                            <label for="rollno" class="form-label">Roll No: </label>
+                            <input name="roll" type="number" class="form-control" id="roll"
+                                [(ngModel)]="roll" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name : </label>
+                            <input name="name" type="text" class="form-control" id="name"
+                                [(ngModel)]="name" required>
+                        </div>
+                        <div class="container text-center">
+                            <button type="submit" class="btn btn-primary border-0" [disabled]="!roll && !name"
+                                (click)="SearchData()">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

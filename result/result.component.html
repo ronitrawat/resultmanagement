@@ -1,0 +1,39 @@
+
+<!--Navbar-->
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>Student DashBoard</h2>
+        <div class="d-flex">
+            <a class="btn btn-danger" routerLink="../login">Logout</a>
+        </div>
+    </div>
+</nav>
+<!--Body-->
+
+<h3 >Result</h3>
+<div class="container">
+<table class="table text-center mt-5" border="3px">
+    <thead>
+        <tr>
+            <th scope="col">Student ID</th>
+            <th scope="col">Roll No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date-of-Birth</th>
+            <th scope="col">Score</th>
+            <th scope="col">Skill</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+        <tr *ngFor="let item of sharedArray" >
+            <td>{{item.id}}</td>
+            <td>{{item.rollno}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.dob}}</td>
+            <td>{{item.score}}</td>
+            <td>{{item.skill}}</td>
+        </tr>
+    
+    </tbody>
+</table>
+</div>
