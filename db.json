@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "rollno": 47,
+      "name": "ronit",
+      "dob": "2023-06-07",
+      "score": 97,
+      "skill": "html"
+    },
+    {
+      "id": 3,
+      "rollno": 4254,
+      "name": "gfmkgm",
+      "dob": "2023-06-07",
+      "score": 343,
+      "skill": "gkffd"
+    },
+    {
+      "id": 4,
+      "rollno": 23,
+      "name": "bdhuvbj",
+      "dob": "2023-06-09",
+      "score": 34,
+      "skill": "bdjvb"
+    },
+    {
+      "id": 5,
+      "rollno": 22,
+      "name": "ronit",
+      "dob": "2023-06-03",
+      "score": 4,
+      "skill": "4ff"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
